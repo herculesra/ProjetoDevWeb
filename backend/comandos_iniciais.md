@@ -55,6 +55,11 @@ npx knex migrate:make create_gift_card
 npx knex migrate:latest
 ```
 
+## Listando as migrations
+```
+npx knex migrate:list
+```
+
 Para mais comandos: npx knex -> Lista todos os comandos
 
 
