@@ -4,24 +4,22 @@ import './styles.css';
 
 import { cards } from '../util';
 
-import Card from '../../components/Card'
+import MyCard from '../../components/MyCard';
 
 const Home = (props) => {
     
     return (
         <>
-            <div>
-                {cards ? cards.map((entry, index) => {
-                    <Card 
-                        nome={entry.nome} 
-                        preco={entry.preco} 
-                        categoria={entry.categoria}
-                        qtd_vendido={entry.qtd_vendido}
-                    />
-                }) : null}
-            </div>
-
-            <h1>PORRA</h1>
+            { cards.map( e => 
+                <MyCard
+                    nome={e.nome} 
+                    preco={e.preco} 
+                    categoria={e.categoria}
+                    qtd_vendido={e.qtd_vendido}
+                    key={"MyCard" + e.codigo}
+                ></MyCard>
+            )
+            }
         </>
     );
 }
