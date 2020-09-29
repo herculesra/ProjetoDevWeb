@@ -1,8 +1,11 @@
-# GiftLoucos
+<div align="center">
+    <img src="./frontend/src/assets/logo/logo2.png" />
+    <h2>Loja de Gift Cards<h2>
+</div>
 
-## Loja de Gift Cards
+## Objetivo
+O projeto entregará a loja: GiftLoucos, uma loja de venda de gift cards para jogos, serviços de streamers e outros.
 
-O projeto trará a loja: GiftLoucos, uma loja de venda de gift cards para jogos, serviços de streamers e outros.
 O objetivo por enquanto é implementar a principal funcionalidade da loja (Mostrar os produtos, alterá-los). Funcionalidades como Usuários, será algo futuro a ser adicionado ou não.
 
 ### Páginas
