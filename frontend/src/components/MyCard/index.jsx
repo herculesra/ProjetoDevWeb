@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 
 import './styles.css';
 
@@ -11,15 +11,15 @@ const MyCard = (props) => {
     const [promocao, setPromocao] = useState(false);
 
 
-    useEffect(()=>{
-        if(props){
-            setNome(props.nome);
-            setPreco(props.preco);
-            setCategoria(props.categoria);
-            setQtdVendido(props.qtdVendido);
-            setFavorito(props.favorito);
-            setPromocao(props.promocao);
-        }
+    useEffect(() => {
+
+        setNome(props.nome);
+        setPreco(props.preco);
+        setCategoria(props.categoria);
+        setQtdVendido(props.qtdVendido);
+        setFavorito(props.favorito);
+        setPromocao(props.promocao);
+
     });
 
     return (
@@ -28,9 +28,9 @@ const MyCard = (props) => {
             <p>{preco}</p>
             <p>{categoria}</p>
             <p>Vendidos: {qtdVendido}</p>
-            <button>Comprar</button>
+            <button className="button">Comprar</button>
             {/* adicionar icone Star */}
-            <button>Favoritar</button>
+            <button className="button">Favoritar</button>
         </div>
     );
 }
