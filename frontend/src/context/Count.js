@@ -20,6 +20,7 @@ export default function CountProvider( {children} ) {
 // criando meu proprio hook
 export function useCount(){
     const context = useContext(CountContext);
+    if(!context) throw new Error("Use must be used within a CounterProvider");
     const { count, setCount } = context;
     return { count, setCount };
 }
