@@ -1,26 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 import './styles.css';
 
-const MyCard = (props) => {
-    const [nome, setNome] = useState('');
-    const [preco, setPreco] = useState(0);
-    const [categoria, setCategoria] = useState('');
-    const [qtdVendido, setQtdVendido] = useState(0);
+const MyCard = ({ cardModel }) => {
+
+    console.log(cardModel);
+
+    const [nome, setNome] = useState(cardModel.nome);
+    const [preco, setPreco] = useState(cardModel.preco);
+    const [categoria, setCategoria] = useState(cardModel.categoria);
+    const [qtdVendido, setQtdVendido] = useState(cardModel.qtd_vendido);
     const [favorito, setFavorito] = useState(false);
     const [promocao, setPromocao] = useState(false);
-
-
-    useEffect(() => {
-
-        setNome(props.nome);
-        setPreco(props.preco);
-        setCategoria(props.categoria);
-        setQtdVendido(props.qtdVendido);
-        setFavorito(props.favorito);
-        setPromocao(props.promocao);
-
-    });
 
     return (
         <div className="my-card">

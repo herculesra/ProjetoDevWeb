@@ -6,6 +6,9 @@ import './styles.css';
 import MyCard from '../../components/MyCard';
 import Header from '../../components/Header';
 
+// Model
+import CardModel from '../../model/card-model.js';
+
 //Api
 import api from '../../services/api';
 
@@ -14,13 +17,17 @@ const Home = (props) => {
 
     const [cards, setCards] = useState([]);
     const [load, setLoad] = useState(false);
-
-    useEffect(async () => {
+    
+    useEffect(() => {
         setLoad(false);
 
-        const res = await api.get('/giftcard', {});
-        setCards(res.data.dados);
+        const fetchDataApi = async () => {
+            const res = await api.get('/giftcard', {});
+            setCards(res.data.dados);
+        }
 
+        fetchDataApi();
+        
         setLoad(true);
     }, []);
 
@@ -28,14 +35,11 @@ const Home = (props) => {
         <>
             <Header></Header>
             {load ?
-                cards.map(e =>
-                        <MyCard
-                            nome={e.nome}
-                            preco={e.preco}
-                            categoria={e.categoria}
-                            qtd_vendido={e.qtd_vendido}
-                            key={"MyCard" + e.codigo}
-                        ></MyCard>)
+                cards.map(e => {
+                        const cardModel = new CardModel(e.codigo, e.nome, e.preco, e.categoria, e.qtd_vendido);
+                        
+                        return <MyCard key={"MyCard" + e.codigo} cardModel={cardModel}></MyCard>
+                })
                 
                : null}
         </>
