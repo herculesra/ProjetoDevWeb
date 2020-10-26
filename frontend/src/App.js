@@ -2,12 +2,19 @@ import React from 'react';
 
 import './global.css';
 
+// Context
+import CountProvider from './context/Count';
+
+// Rotas
 import Routes from './routes';
+
 
 function App() {
 
   return (
-    <Routes />
+    <CountProvider>
+      <Routes />
+    </CountProvider>
   );
 }
 
