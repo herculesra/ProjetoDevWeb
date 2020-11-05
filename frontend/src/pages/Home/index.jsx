@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
 
+//RSuite
+import { Loader } from 'rsuite';
+
 import './styles.css';
 
 // Components
@@ -17,7 +20,7 @@ const Home = (props) => {
 
     const [cards, setCards] = useState([]);
     const [load, setLoad] = useState(false);
-    
+
     useEffect(() => {
         setLoad(false);
 
@@ -27,21 +30,28 @@ const Home = (props) => {
         }
 
         fetchDataApi();
-        
+
         setLoad(true);
     }, []);
 
     return (
         <>
             <Header></Header>
-            {load ?
-                cards.map(e => {
+            <main className="main-home">
+                {load ?
+                    cards.map(e => {
                         const cardModel = new CardModel(e.codigo, e.nome, e.preco, e.categoria, e.qtd_vendido);
-                        
+
                         return <MyCard key={"MyCard" + e.codigo} cardModel={cardModel}></MyCard>
-                })
-                
-               : null}
+                    }): <Loader />}
+                <div className="slidershow-home">
+                    <h1>Slider</h1>
+                </div>
+                <div className="graph-home">
+                    <h1>Gráfico De Estatísticas</h1>
+                </div>
+            </main>
+
         </>
     );
 }

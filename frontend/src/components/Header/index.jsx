@@ -10,25 +10,21 @@ import './styles.css';
 const Header = (props) => {
 
     return (
-        <nav>
-            <div className="header-container">
+        <div className="header-container">
+            <div>
                 <img src={loukinhoImg} alt="Loukinho" />
                 <img src={textLogoImg} alt="Gift Loucos" />
+            </div>
+            <nav>
                 <ul>
-                    {/* <li><Link to={"/"}>Home</Link></li>
+                    <li><Link to={"/"}>Home</Link></li>
                     <li><Link to={"/favoritos"}>Favoritos</Link></li>
                     <li><Link to={"/carrinho"}>Carrinho</Link></li>
                     <li><Link to={"/cadastro"}>Cadastrar</Link></li>
-                    <li><Link to={"/sobre"}>Sobre</Link></li> */}
-
-                    <Link to={"/"}><li>Home</li></Link>
-                    <Link to={"/favoritos"}><li>Favoritos</li></Link>
-                    <Link to={"/carrinho"}><li>Carrinho</li></Link>
-                    <Link to={"/cadastro"}><li>Cadastrar</li></Link>
-                    <Link to={"/sobre"}><li>Sobre</li></Link>
+                    <li><Link to={"/sobre"}>Sobre</Link></li>
                 </ul>
-            </div>
-        </nav>
+            </nav>
+        </div>
     );
 }
 
