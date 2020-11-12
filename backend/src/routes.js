@@ -7,7 +7,7 @@ const routes = express.Router();
 routes.get('/giftcard', GiftCardController.index);
 routes.post('/giftcard', GiftCardController.create);
 routes.delete('/giftcard/:code', GiftCardController.delete);
-// routes.put('/giftcard', GiftCardController.update);
+routes.put('/giftcard', GiftCardController.updateCard);
 
 
 module.exports = routes;

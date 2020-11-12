@@ -35,13 +35,31 @@ module.exports = {
             await connection('gift_card').where('codigo', code).del();
         }catch(e){ 
             console.log("erro: ", e);
-            return response.status(404).json({error: 'code not found'});
+            return response.status(404).json({msg: 'error: code not found'});
         }
 
-        return response.status(200).json({sucess: 'giftcard successfully deleted'});
+        return response.status(200).json({msg: 'sucess: giftcard successfully deleted'});
+    },
+
+    async updateCard(request, response){
+        const {  codigo, nome, categoria, preco, favorito, promocao, qtd_vendido, url_image } = request.body;
+
+        try{
+            await connection('gift_card').where('codigo', codigo).update({
+                nome: nome,
+                "categoria": categoria,
+                "preco": preco,
+                "favorito": favorito,
+                "promocao": promocao,
+                "qtd_vendido": qtd_vendido,
+                "url_image": url_image
+            });
+
+        }catch(e){
+            console.log("erro: ", e);
+            return response.status(404).json({msg: 'error: code not found'});
+        }
+
+        return response.status(200).json({msg: 'sucess: giftcard sucessfully updated'});
     }
-
-    // async update(request, response){
-
-    // }
 }
