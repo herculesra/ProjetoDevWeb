@@ -40,7 +40,7 @@ const Home = (props) => {
             <main className="main-home">
                 {load ?
                     cards.map(e => {
-                        const cardModel = new CardModel(e.codigo, e.nome, e.preco, e.categoria, e.qtd_vendido);
+                        const cardModel = new CardModel(e.codigo, e.nome, e.preco, e.categoria, e.qtd_vendido, e.url_image);
 
                         return <MyCard key={"MyCard" + e.codigo} cardModel={cardModel}></MyCard>
                     }): <Loader />}

@@ -8,12 +8,16 @@ import Carrinho from './pages/Carrinho';
 import Cadastro from './pages/Cadastro';
 import Sobre from './pages/Sobre';
 
+import ComponentTest from './components/ComponentTest';
+
 
 export default function Routes(){
     return(
         <BrowserRouter>
         {/* o switch garante que apenas uma rota seja executada no momento */}
             <Switch>
+                {/* Para teste de estilo */}
+                <Route path="/" exact component={ComponentTest} />
                 {/* exact evita que o '/' nao seja chamado quando acessado outra rota com '/' */}
                 <Route path="/" exact component={Home} />
                 <Route path="/favoritos" exact component={Favoritos} />
