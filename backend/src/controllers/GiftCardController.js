@@ -33,7 +33,9 @@ module.exports = {
 
         let arrrayOfCodes = [];
 
-        await data.map(async element => {
+        // Como o retorno do "Data.map" não é uma promise, o await não espera, logo o array não é preenchido
+        // Colocando Promise.all transforma a função em uma promise, logo o await funciona.
+        await Promise.all(data.map(async element => {
 
             const { nome, categoria, preco, favorito, promocao, qtd_vendido, url_image } = element;
 
@@ -48,7 +50,7 @@ module.exports = {
             });
 
             arrrayOfCodes.push(codigo);
-        });
+        }));
 
         return response.status(200).json({ codigos: arrrayOfCodes });
     },
