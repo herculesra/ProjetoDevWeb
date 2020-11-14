@@ -2,33 +2,36 @@
     margin: 0 auto;
     width: 19rem; /* 300px */
     height: 25rem;
-    /* border: 1px solid black; */
 
-    border: 1px solid;
-    border-radius: 5px 5px 0px 0px;
-
-    box-shadow: 0 0.25rem 0.5rem 0 rgba(0,0,0,0.2);
+    box-shadow: 0 0.25rem 0.5rem 0 rgba(0, 0, 0, 0.904),
+                0.3rem 0.35rem 0.6rem 0 rgba(0, 0, 0, 0.904);
+    
     transition: 0.3s;
 }
 
 .mold-card:hover{
-    box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.356);
+    box-shadow: 0 0.5rem 1rem 0 rgba(47, 13, 70, 0.568);
 }
 
 .mold-card-image{
     width: auto;
     height: 21rem; /* 300px */
-    background-color: rgb(241, 241, 241);
+    background-color: #221F1F;
 }
 
-.mold-card-image img{
-    background-size: cover;
+.mold-card-image div{
+    background-image: url(./images/Streaming/youtube.png);
+    background-repeat: no-repeat; /* para não duplicar a imagem */
+    /* background-attachment: fixed; */
+    background-size: cover; /* tem a opção de content e cover, content serve para se adaptar ao tamnho do browser, cover: para cobrir o que sobra da imagem*/
+    background-position: center; /*esconde a parte de cima mas prioriza a parte de baixo*/
     height: 90%;
     width: 100%;
     /* image-rendering: cover; */
 }
 
 .mold-card-image h2{
+    color: white;
     text-align: center;
     font-size: 1rem;
     line-height: 2rem;

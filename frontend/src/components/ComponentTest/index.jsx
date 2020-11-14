@@ -13,8 +13,6 @@ import CardModel from '../../model/card-model.js';
 import './styles.css';
 import { useState } from 'react';
 
-import SteamIMG from './images/steam.jpg';
-
 const ComponentTest = () => {
     const cardModel = new CardModel(1, 'Smite', 200, 'jogos', 20, '');
     const [favority, setFavority] = useState(false);
@@ -36,8 +34,9 @@ const ComponentTest = () => {
 
             <div className="mold-card">
                 <div className="mold-card-image">
-                    <img src={SteamIMG} alt=""/>
-                    <h2 className="card-name">steam</h2>
+                    {/* <img src={SteamIMG} alt=""/> */}
+                    <div></div>
+                    <h2 className="card-name">dead by daylight mata</h2>
                 </div>
 
                 <div className="mold-card-footer">
