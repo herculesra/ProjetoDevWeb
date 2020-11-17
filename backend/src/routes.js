@@ -8,6 +8,7 @@ routes.get('/giftcard', GiftCardController.index);
 routes.get('/giftcard/name/:name', GiftCardController.listCardsByName);
 routes.get('/giftcard/category/:category', GiftCardController.listCardsByCategory);
 routes.get('/giftcard/moresell', GiftCardController.listCardsByMoreSell);
+routes.get('/giftcard/shoppingCar', GiftCardController.listCardsInShoppingCar);
 
 routes.post('/giftcard', GiftCardController.create);
 routes.post('/giftcard/manycards', GiftCardController.createManyCards);

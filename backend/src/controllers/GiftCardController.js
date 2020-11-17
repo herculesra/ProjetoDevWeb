@@ -13,7 +13,7 @@ module.exports = {
     // Criando um gift card
     async create(request, response) {
         console.log(request.body);
-        const { nome, categoria, preco, favorito, promocao, qtd_vendido, url_image } = request.body;
+        const { nome, categoria, preco, favorito, promocao, carrinho, qtd_vendido, url_image } = request.body;
 
         const [codigo] = await connection('gift_card').insert({
             nome,
@@ -21,6 +21,7 @@ module.exports = {
             preco,
             favorito,
             promocao,
+            carrinho,
             qtd_vendido,
             url_image,
         });
@@ -37,7 +38,7 @@ module.exports = {
         // Colocando Promise.all transforma a função em uma promise, logo o await funciona.
         await Promise.all(data.map(async element => {
 
-            const { nome, categoria, preco, favorito, promocao, qtd_vendido, url_image } = element;
+            const { nome, categoria, preco, favorito, promocao, carrinho, qtd_vendido, url_image } = element;
 
             const [codigo] = await connection('gift_card').insert({
                 nome,
@@ -45,6 +46,7 @@ module.exports = {
                 preco,
                 favorito,
                 promocao,
+                carrinho,
                 qtd_vendido,
                 url_image,
             });
@@ -70,15 +72,16 @@ module.exports = {
     },
 
     async updateCard(request, response) {
-        const { codigo, nome, categoria, preco, favorito, promocao, qtd_vendido, url_image } = request.body;
+        const { codigo, nome, categoria, preco, favorito, promocao, carrinho, qtd_vendido, url_image } = request.body;
 
         try {
             await connection('gift_card').where('codigo', codigo).update({
-                nome: nome,
+                "nome": nome,
                 "categoria": categoria,
                 "preco": preco,
                 "favorito": favorito,
                 "promocao": promocao,
+                "carrinho": carrinho,
                 "qtd_vendido": qtd_vendido,
                 "url_image": url_image
             });
@@ -121,5 +124,11 @@ module.exports = {
         const dados = await connection('gift_card').orderBy('qtd_vendido', "desc");
 
         return response.json({ dados });
+    },
+
+    async listCardsInShoppingCar(request, response){
+        const dados = await connection('gift_card').where("carrinho", "true");
+
+        return response.status(200).json({ dados });
     }
 }

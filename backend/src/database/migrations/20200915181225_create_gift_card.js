@@ -8,6 +8,7 @@ exports.up = function(knex) {
         table.float('preco').notNullable();
         table.boolean('favorito').notNullable();
         table.boolean('promocao').notNullable();
+        table.boolean('carrinho').notNullable();
         table.integer('qtd_vendido').notNullable();
         // default as void string;
         table.string('url_image').notNullable();
