@@ -1,0 +1,26 @@
+.main-graph-selling{
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* Custom Tooltip */
+
+.main-custom-tooltip{
+    background-color: aliceblue;
+    width: auto;
+    height: 5rem;
+    padding: 1rem;
+}
+
+.main-custom-tooltip h2,p{
+    margin: 5px;
+    margin-left: 0px;
+}
+
+.main-custom-tooltip .custom-tooltip-selling{
+    font-size: large;
+    font-weight: 700;
+}
