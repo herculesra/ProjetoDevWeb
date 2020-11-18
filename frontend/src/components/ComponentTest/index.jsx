@@ -17,6 +17,11 @@ const ComponentTest = () => {
     const cardModel = new CardModel(1, 'Smite', 200, 'jogos', 20, '');
     const [favority, setFavority] = useState(false);
     const [inShopping, setInShopping] = useState(false);
+    
+    const categoria = "streaming";
+    const nome = "youtube";
+    const backGroundImage = require(`./images/${categoria}/${nome}.png`);
+
 
     const handlerFavority = (boolean) => {
         setFavority(boolean);
@@ -34,9 +39,8 @@ const ComponentTest = () => {
 
             <div className="mold-card">
                 <div className="mold-card-image">
-                    {/* <img src={SteamIMG} alt=""/> */}
-                    <div></div>
-                    <h2 className="card-name">dead by daylight mata</h2>
+                    <div style={{ backgroundImage: `url(${backGroundImage})`}}></div>
+                    <h2 className="card-name">dead by daylight</h2>
                 </div>
 
                 <div className="mold-card-footer">

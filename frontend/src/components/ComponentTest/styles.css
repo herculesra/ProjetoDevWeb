@@ -20,14 +20,12 @@
 }
 
 .mold-card-image div{
-    background-image: url(./images/Streaming/youtube.png);
-    background-repeat: no-repeat; /* para não duplicar a imagem */
-    /* background-attachment: fixed; */
-    background-size: cover; /* tem a opção de content e cover, content serve para se adaptar ao tamnho do browser, cover: para cobrir o que sobra da imagem*/
-    background-position: center; /*esconde a parte de cima mas prioriza a parte de baixo*/
+    /* background-image: url(./images/Streaming/youtube.png); */
+    background-repeat: no-repeat; 
+    background-size: cover;
+    background-position: center; 
     height: 90%;
     width: 100%;
-    /* image-rendering: cover; */
 }
 
 .mold-card-image h2{
