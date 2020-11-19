@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 import { Loader } from 'rsuite';
 
-import { BarChart, CartesianGrid, XAxis, YAxis, Tooltip, Legend, Bar, Cell } from 'recharts';
+import { BarChart, CartesianGrid, XAxis, YAxis, Tooltip, Bar, Cell } from 'recharts';
 
 import './styles.css';
 

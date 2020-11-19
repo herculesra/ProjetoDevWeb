@@ -5,7 +5,14 @@ const connection = require('../database/connection');
 module.exports = {
     // Buscando todos os gifts cards
     async index(request, response) {
-        const dados = await connection('gift_card').select('*');
+
+        // Caso não exista a informação da pagina, ele busca seta pra 1.
+        const { page = 1} = request.query;
+
+        const dados = await connection('gift_card')
+            .limit(6)
+            .offset((page - 1) * 6)
+            .select('*');
 
         return response.json({ dados });
     },
@@ -95,10 +102,17 @@ module.exports = {
     },
 
     async listCardsByName(request, response){
+
+        const { page = 1} = request.query;
+
         const name = request.params.name;
         
         try{
-            const data = await connection('gift_card').where('nome', 'like', name+'%');
+            const data = await connection('gift_card')
+                .limit(6)
+                .offset((page - 1) * 6)
+                .where('nome', 'like', name+'%');
+
             return response.status(200).json({ data });
         }catch (e) {
             console.log(e);
@@ -107,10 +121,16 @@ module.exports = {
     },
 
     async listCardsByCategory(request, response){
+
+        const { page = 1} = request.query;
+
         const category = request.params.category;
 
         try{
-            const dados = await connection('gift_card').where('categoria', category);
+            const dados = await connection('gift_card')
+                .limit(6)
+                .offset((page - 1) * 6)
+                .where('categoria', category);
 
             return response.status(200).json({ dados });
         }catch(e){
@@ -121,7 +141,12 @@ module.exports = {
     },
 
     async listCardsByMoreSell(request, response){
-        const dados = await connection('gift_card').orderBy('qtd_vendido', "desc");
+        const { page = 1} = request.query;
+
+        const dados = await connection('gift_card')
+            .limit(6)
+            .offset((page - 1) * 6)
+            .orderBy('qtd_vendido', "desc");
 
         return response.json({ dados });
     },
