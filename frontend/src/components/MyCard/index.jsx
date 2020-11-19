@@ -10,15 +10,15 @@ const MyCard = ({ cardModel }) => {
     console.log(cardModel);
 
     const code = cardModel.code;
-    const name = cardModel.nome;
-    const price = cardModel.preco;
-    const category = cardModel.categoria;
-    const sellingQtt = cardModel.qtd_vendido;
+    const name = cardModel.name;
+    const price = cardModel.price;
+    const category = cardModel.category;
+    const sellingQtt = cardModel.selling_qtt;
     const urlImage = cardModel.url_image;
-    const [favority, setFavority] = useState(cardModel.favorito);
-    const [promocao, setPromocao] = useState(cardModel.promocao);
+    const [favority, setFavority] = useState(cardModel.favority);
+    const [promocao, setPromocao] = useState(cardModel.promotion);
     const [inShopping, setInShopping] = useState(cardModel.shopping_car);
-    const [backgroundImage, setBackGroundImage] = useState(cardModel.urlImage);
+    const [backgroundImage, setBackGroundImage] = useState(cardModel.url_image);
 
     const backGroundImage = () => {
         if (urlImage === '') {

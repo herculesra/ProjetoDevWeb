@@ -1,15 +1,15 @@
 
 exports.up = function(knex) {
     return knex.schema.createTable('gift_card',function(table){
-        table.increments('codigo').primary();
-        table.string('nome').notNullable();
-        table.string('categoria').notNullable();
+        table.increments('code').primary();
+        table.string('name').notNullable();
+        table.string('category').notNullable();
         // caso queira colocar precisao, olhar documentacao knex schema builder -> float
-        table.float('preco').notNullable();
-        table.boolean('favorito').notNullable();
-        table.boolean('promocao').notNullable();
-        table.boolean('carrinho').notNullable();
-        table.integer('qtd_vendido').notNullable();
+        table.float('price').notNullable();
+        table.boolean('favority').notNullable();
+        table.boolean('promotion').notNullable();
+        table.boolean('shopping_car').notNullable();
+        table.integer('selling_qtt').notNullable();
         // default as void string;
         table.string('url_image').notNullable();
 
