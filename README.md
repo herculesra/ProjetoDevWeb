@@ -4,17 +4,34 @@
 </div>
 
 ## Objetivo
-O projeto entregará a loja: GiftLoucos, uma loja de venda de gift cards para jogos, serviços de streamers e outros.
+O projeto entregará a loja: GiftLoucos, uma loja de venda de gift cards para Jogos, serviços de Streaming e Lojas.
 
-O objetivo por enquanto é implementar a principal funcionalidade da loja (Mostrar os produtos, alterá-los). Funcionalidades como Usuários, será algo futuro a ser adicionado ou não.
+O objetivo é implementar as principais funcionalidades da loja (Mostrar os produtos, adionar ao carrinho, favoritar e cadastrar novos produtos). Funcionalidades como usuários e controle de estoque será algo futuro a ser adicionado.
 
 ### Páginas
-* Tela para comprar os gift cards.
-* Tela para adicionar/remover/editar.
-* Tela para Lista de desejos / Favoritos
+* Tela Home
+* Tela Carrinho
+* Tela Favoritos
+* Tela Cadastro
+* Tela Sobre
 
 ### Funcionalidades
 * Buscar gift cards.
-* Apresentar produtos em promoção.
-* Representar graficamente as estatísticas de vendas.
-* Favoritar produtos.
+
+    - No Home será possível visualizar os gift cards que a loja contém. Sendo possível buscá-los por: Todos, Categorias ou por nome do Gift Card.
+    
+* Apresentar produtos em promoção
+
+    - Visualmente teremos um Slider com os gifts que estão em promoção.
+
+* Representar graficamente as estatísticas de vendas
+
+    - Consiste de um gráfico de barras representando a quantidade de vendas das categoria presentes (Jogos, Lojas, Streaming).
+
+* Favoritar produtos
+
+    - Será possível favoritar o gift card de sua escolha.
+
+* Carrinho
+
+    - O carrinho terá todos os produtos previamentes adicionados. O Total da quantidade daqueles produtos e opções para finalizar compra e remover produto do carrinho.
