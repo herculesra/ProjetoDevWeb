@@ -1,3 +1,8 @@
+<div align="center">
+    <img src="./frontend/src/assets/logo/logo2.png" />
+    <h2>Loja de Gift Cards<h2>
+</div>
+
 ## Objetivo
 O projeto entregará a loja: GiftLoucos, uma loja de venda de gift cards para Jogos, serviços de Streaming e Lojas.
 
