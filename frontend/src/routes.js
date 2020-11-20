@@ -17,9 +17,9 @@ export default function Routes(){
         {/* o switch garante que apenas uma rota seja executada no momento */}
             <Switch>
                 {/* Para teste de estilo */}
-                {/* <Route path="/" exact component={ComponentTest} /> */}
+                <Route path="/" exact component={ComponentTest} />
                 {/* exact evita que o '/' nao seja chamado quando acessado outra rota com '/' */}
-                <Route path="/" exact component={Home} />
+                {/* <Route path="/" exact component={Home} /> */}
                 <Route path="/favoritos" exact component={Favoritos} />
                 <Route path="/carrinho" exact component={Carrinho} />
                 <Route path="/cadastro" exact component={Cadastro} />

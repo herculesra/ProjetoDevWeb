@@ -28,8 +28,7 @@ const Home = (props) => {
 
             const res = await api.get('/giftcard', {});
    
-            setCards(res.data.dados.map(e => new CardModel(e.code, e.name, e.category, e.price, e.favority, e.promotion, e.shopping_car, e.selling_qtt,  e.url_image)));
-            
+            setCards(res.data.data.map(e => new CardModel(e.code, e.name, e.category, e.price, e.favority, e.promotion, e.shopping_car, e.selling_qtt,  e.url_image)));
             setLoading(false);
         }
 

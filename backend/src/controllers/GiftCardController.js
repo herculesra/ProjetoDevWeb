@@ -9,12 +9,14 @@ module.exports = {
         // Caso não exista a informação da pagina, ele busca seta pra 1.
         const { page = 1} = request.query;
 
-        const dados = await connection('gift_card')
+        const totalElements = await connection('gift_card').count({count: '*'});
+
+        const data = await connection('gift_card')
             .limit(6)
             .offset((page - 1) * 6)
             .select('*');
 
-        return response.json({ dados });
+        return response.json({ data, total: totalElements[0].count });
     },
 
     // Criando um gift card
