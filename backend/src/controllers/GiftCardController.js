@@ -1,3 +1,4 @@
+const { limit } = require('../database/connection');
 const connection = require('../database/connection');
 
 // import createCard from './util';
@@ -82,7 +83,6 @@ module.exports = {
 
     async updateCard(request, response) {
 
-        console.log("meu body: ", request.body)
         const { code, name, category, price, favority, promotion, shopping_car, selling_qtt, url_image } = request.body;
 
         try {
@@ -107,14 +107,14 @@ module.exports = {
 
     async listCardsByName(request, response){
 
-        const { page = 1} = request.query;
+        const { page = 1, limit = 6} = request.query;
 
         const name = request.params.name;
         
         try{
             const data = await connection('gift_card')
-                .limit(6)
-                .offset((page - 1) * 6)
+                .limit(limit)
+                .offset((page - 1) * limit)
                 .where('name', 'like', name+'%');
 
             return response.status(200).json({ data });
@@ -126,14 +126,14 @@ module.exports = {
 
     async listCardsByCategory(request, response){
 
-        const { page = 1} = request.query;
+        const { page = 1, limit = 6} = request.query;
 
         const category = request.params.category;
 
         try{
             const dados = await connection('gift_card')
-                .limit(6)
-                .offset((page - 1) * 6)
+                .limit(limit)
+                .offset((page - 1) * limit)
                 .where('category', category);
 
             return response.status(200).json({ dados });
@@ -145,19 +145,25 @@ module.exports = {
     },
 
     async listCardsByMoreSell(request, response){
-        const { page = 1} = request.query;
+        const { page = 1, limit = 6} = request.query;
 
-        const dados = await connection('gift_card')
-            .limit(6)
-            .offset((page - 1) * 6)
+        const data = await connection('gift_card')
+            .limit(limit)
+            .offset((page - 1) * limit)
             .orderBy('selling_qtt', "desc");
 
-        return response.json({ dados });
+        return response.json({ data });
     },
 
     async listCardsInShoppingCar(request, response){
-        const dados = await connection('gift_card').where("shopping_car", true);
+        const data = await connection('gift_card').where("shopping_car", true);
 
-        return response.status(200).json({ dados });
+        return response.status(200).json({ data });
+    },
+
+    async listFavoritesCards(request, response){
+        const data = await connection('gift_card').where('favority', true);
+
+        return response.status(200).json({ data });
     }
 }
