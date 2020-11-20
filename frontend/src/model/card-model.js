@@ -5,7 +5,7 @@ export default function CardModel(code, name, category, price, favority, promoti
     this.price = price;
     this.favority = favority;
     this.promotion = promotion;
-    this.shoppingCar = shopping_car;
-    this.sellingQtt = selling_qtt;
+    this.shopping_car = shopping_car;
+    this.selling_qtt = selling_qtt;
     this.url_image = url_image;
 }

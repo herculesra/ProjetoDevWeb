@@ -7,13 +7,13 @@ module.exports = {
     async index(request, response) {
 
         // Caso não exista a informação da pagina, ele busca seta pra 1.
-        const { page = 1} = request.query;
+        const { page = 1, limit = 6} = request.query;
 
         const totalElements = await connection('gift_card').count({count: '*'});
 
         const data = await connection('gift_card')
-            .limit(6)
-            .offset((page - 1) * 6)
+            .limit(limit)
+            .offset((page - 1) * limit)
             .select('*');
 
         return response.json({ data, total: totalElements[0].count });
@@ -24,7 +24,7 @@ module.exports = {
         console.log(request.body);
         const { name, category, price, favority, promotion, shopping_car, selling_qtt, url_image } = request.body;
 
-        const [codigo] = await connection('gift_card').insert({
+        const [code] = await connection('gift_card').insert({
             name,
             category,
             price,
@@ -35,7 +35,7 @@ module.exports = {
             url_image,
         });
 
-        return response.json({ codigo });
+        return response.json({ code });
     },
 
     async createManyCards(request, response) {
@@ -49,7 +49,7 @@ module.exports = {
 
             const { name, category, price, favority, promotion, shopping_car, selling_qtt, url_image } = element;
 
-            const [codigo] = await connection('gift_card').insert({
+            const [code] = await connection('gift_card').insert({
                 name,
                 category,
                 price,
@@ -60,10 +60,10 @@ module.exports = {
                 url_image,
             });
 
-            arrrayOfCodes.push(codigo);
+            arrrayOfCodes.push(code);
         }));
 
-        return response.status(200).json({ codigos: arrrayOfCodes });
+        return response.status(200).json({ codes: arrrayOfCodes });
     },
 
     async delete(request, response) {
@@ -71,7 +71,7 @@ module.exports = {
         const code = request.params.code;
 
         try {
-            await connection('gift_card').where('codigo', code).del();
+            await connection('gift_card').where('code', code).del();
         } catch (e) {
             console.log("erro: ", e);
             return response.status(404).json({ msg: 'error: code not found' });
@@ -81,10 +81,12 @@ module.exports = {
     },
 
     async updateCard(request, response) {
-        const { codigo, name, category, price, favority, promotion, shopping_car, selling_qtt, url_image } = request.body;
+
+        console.log("meu body: ", request.body)
+        const { code, name, category, price, favority, promotion, shopping_car, selling_qtt, url_image } = request.body;
 
         try {
-            await connection('gift_card').where('codigo', codigo).update({
+            await connection('gift_card').where('code', code).update({
                 "name": name,
                 "category": category,
                 "price": price,
@@ -100,7 +102,7 @@ module.exports = {
             return response.status(404).json({ msg: 'error: code not found' });
         }
 
-        return response.status(200).json({ msg: 'sucess: giftcard sucessfully updated' });
+        return response.status(200).json({ msg: 'giftcard sucessfully updated' });
     },
 
     async listCardsByName(request, response){
@@ -154,7 +156,7 @@ module.exports = {
     },
 
     async listCardsInShoppingCar(request, response){
-        const dados = await connection('gift_card').where("shopping_car", "true");
+        const dados = await connection('gift_card').where("shopping_car", true);
 
         return response.status(200).json({ dados });
     }

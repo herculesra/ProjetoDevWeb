@@ -10,7 +10,7 @@ exports.up = function(knex) {
         table.boolean('promotion').notNullable();
         table.boolean('shopping_car').notNullable();
         table.integer('selling_qtt').notNullable();
-        // default as void string;
+        // default as empty string;
         table.string('url_image').notNullable();
 
         table.timestamp('created_at').defaultTo(knex.fn.now());

@@ -1,0 +1,11 @@
+.main-pagination{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-container{
+    min-width: 1030px;
+    max-width: 1030px;
+    margin: 0 auto;
+}
