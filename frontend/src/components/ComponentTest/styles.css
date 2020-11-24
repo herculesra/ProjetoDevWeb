@@ -9,3 +9,29 @@
     max-width: 1030px;
     margin: 0 auto;
 }
+
+.search-by-name{
+    width: 70%;
+    height: 34px;
+    margin: 0 5px;
+    padding: 5px;
+    border: solid 2px rgba(47, 13, 70, 0.568);
+    border-radius: 5px;
+}
+
+.input-data select {
+    width: 26%;
+    height: 34px;
+    margin: 0;
+    padding: 5px;
+    border: solid 2px rgba(47, 13, 70, 0.568);
+    border-radius: 5px;
+    background-color: transparent;
+}
+
+.search-by-name:focus, .input-data select:focus {
+    border: solid 2px rgba(47, 13, 70, 0.568);
+    border-radius: 5px;
+    box-shadow: 0.1rem 0.1rem 2px rgba(47, 13, 70, 0.568);
+}
+

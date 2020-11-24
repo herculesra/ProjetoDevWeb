@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import { Pagination, SelectPicker } from 'rsuite';
+import { Pagination } from 'rsuite';
 import 'rsuite/dist/styles/rsuite-default.css';
 
 //componentes
@@ -24,7 +24,8 @@ const ComponentTest = () => {
     const [loading, setLoading] = useState(true);
     const [totalPages, setTotalPages] = useState(0);
     const [activePage, setActivePage] = useState(1);
-    const [valueSearch, setValueSearch] = useState('Todos');
+    const [valueSearch, setValueSearch] = useState('all');
+    const [nameCardSearch, setNameCardSearch] = useState('');
 
 
     //limit to obtain the pages.
@@ -49,13 +50,26 @@ const ComponentTest = () => {
     return (
         <React.Fragment>
             <h1>Componente de Teste</h1>
-            <SelectPicker
-                value={valueSearch}
-                onChange={value => setValueSearch(value)}
-                data={dataSearch}
-                style={{ width: 1030 }}
-            />
+  
             <main className="main-container">
+                <div className="input-data">
+                    <input 
+                        type="text" 
+                        className="search-by-name" 
+                        placeholder="Digite o nome do GiftCard"
+                        onChange={ e => {
+                            return setNameCardSearch(e.target.value)}}
+                    />
+                    <select 
+                        value={valueSearch} 
+                        onChange={ e => { 
+                            e.preventDefault(); 
+                            return setValueSearch(e.target.value)
+                        }}
+                    >
+                        {dataSearch.map((e, index) => <option key={"option" + index} value={e.value} >{e.label}</option>)}
+                    </select>               
+                </div>
                 {loading ?
                     null :
                     cards.map(cardModel => (
