@@ -8,7 +8,7 @@ import api from '../../services/api';
 
 const MyCard = ({ cardModel }) => {
 
-    console.log(cardModel);
+    // console.log(cardModel);
 
     const code = cardModel.code;
     const name = cardModel.name;

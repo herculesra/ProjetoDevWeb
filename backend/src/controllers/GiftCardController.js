@@ -112,12 +112,15 @@ module.exports = {
         const name = request.params.name;
         
         try{
+
+            const totalElements = await connection('gift_card').where('name', 'like', '%'+name+'%').count({count: '*'});
+
             const data = await connection('gift_card')
                 .limit(limit)
                 .offset((page - 1) * limit)
-                .where('name', 'like', name+'%');
+                .where('name', 'like', '%'+name+'%');
 
-            return response.status(200).json({ data });
+            return response.status(200).json({ data, total: totalElements[0].count });
         }catch (e) {
             console.log(e);
             return response.status(404).json({ msg: 'error: name not found' });
@@ -131,12 +134,15 @@ module.exports = {
         const category = request.params.category;
 
         try{
-            const dados = await connection('gift_card')
+
+            const totalElements = await connection('gift_card').where('category', category).count({count: '*'});
+
+            const data = await connection('gift_card')
                 .limit(limit)
                 .offset((page - 1) * limit)
                 .where('category', category);
 
-            return response.status(200).json({ dados });
+            return response.status(200).json({ data, total: totalElements[0].count });
         }catch(e){
             console.log("Error: ", e);
             return response.status(404).json({ msg: "Error: category not found" });

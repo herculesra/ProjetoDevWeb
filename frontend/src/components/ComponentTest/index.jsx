@@ -5,6 +5,7 @@ import 'rsuite/dist/styles/rsuite-default.css';
 
 //componentes
 import MyCard from '../MyCard';
+import SearchCards from '../SearchCards'
 
 //model
 import CardModel from '../../model/card-model';
@@ -15,8 +16,6 @@ import api from '../../services/api';
 //css
 import './styles.css';
 
-//util 
-import dataSearch from './util.js';
 
 const ComponentTest = () => {
 
@@ -24,12 +23,15 @@ const ComponentTest = () => {
     const [loading, setLoading] = useState(true);
     const [totalPages, setTotalPages] = useState(0);
     const [activePage, setActivePage] = useState(1);
-    const [valueSearch, setValueSearch] = useState('all');
-    const [nameCardSearch, setNameCardSearch] = useState('');
 
 
     //limit to obtain the pages.
     const LIMIT = 6;
+
+    const handleChangeCards = (cards, totalPages) => {
+        setCards(cards);
+        setTotalPages(totalPages);
+    }
 
     useEffect(() => {
 
@@ -50,26 +52,9 @@ const ComponentTest = () => {
     return (
         <React.Fragment>
             <h1>Componente de Teste</h1>
-  
+
+            <SearchCards limit={LIMIT} page={activePage} handleCards={ handleChangeCards } />
             <main className="main-container">
-                <div className="input-data">
-                    <input 
-                        type="text" 
-                        className="search-by-name" 
-                        placeholder="Digite o nome do GiftCard"
-                        onChange={ e => {
-                            return setNameCardSearch(e.target.value)}}
-                    />
-                    <select 
-                        value={valueSearch} 
-                        onChange={ e => { 
-                            e.preventDefault(); 
-                            return setValueSearch(e.target.value)
-                        }}
-                    >
-                        {dataSearch.map((e, index) => <option key={"option" + index} value={e.value} >{e.label}</option>)}
-                    </select>               
-                </div>
                 {loading ?
                     null :
                     cards.map(cardModel => (
