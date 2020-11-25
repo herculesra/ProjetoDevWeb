@@ -2,3 +2,23 @@
     margin: 0 auto;
     width: 70%;
 }
+
+/* --- SLIDER ---*/
+
+.slidershow-home{
+    margin: 2rem 0;
+    display: flex;
+    justify-content: center;
+}
+
+/* --- GRAPH ---*/
+
+.graph-home{
+    margin: 1rem 0;
+}
+
+.graph-home h1{
+    display: flex;
+    justify-content: center;
+    margin: 2rem 0;
+}

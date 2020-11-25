@@ -9,6 +9,11 @@
     max-width: 1030px;
     margin: 0 auto;
 }
+.input-data{
+    min-width: 1030px;
+    max-width: 1030px;
+    margin: 0 auto;
+}
 
 .search-by-name{
     width: 70%;
@@ -34,4 +39,3 @@
     border-radius: 5px;
     box-shadow: 0.1rem 0.1rem 2px rgba(47, 13, 70, 0.568);
 }
-

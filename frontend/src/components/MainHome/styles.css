@@ -1,5 +1,10 @@
+.main-pagination{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
-.input-data{
+.main-container{
     min-width: 1030px;
     max-width: 1030px;
     margin: 0 auto;
@@ -29,3 +34,4 @@
     border-radius: 5px;
     box-shadow: 0.1rem 0.1rem 2px rgba(47, 13, 70, 0.568);
 }
+

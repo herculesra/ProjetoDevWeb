@@ -11,8 +11,13 @@
 .main-custom-tooltip{
     background-color: aliceblue;
     width: auto;
-    height: 5rem;
+    height: auto;
     padding: 1rem;
+}
+
+.main-custom-tooltip .custom-title{
+    font-size: 2rem;
+    font-weight: 700;
 }
 
 .main-custom-tooltip h2,p{

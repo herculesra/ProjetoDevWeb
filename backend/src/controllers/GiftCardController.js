@@ -151,12 +151,7 @@ module.exports = {
     },
 
     async listCardsByMoreSell(request, response){
-        const { page = 1, limit = 6} = request.query;
-
-        const data = await connection('gift_card')
-            .limit(limit)
-            .offset((page - 1) * limit)
-            .orderBy('selling_qtt', "desc");
+        const data = await connection('gift_card').orderBy('selling_qtt', "desc");
 
         return response.json({ data });
     },

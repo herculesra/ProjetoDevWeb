@@ -21,12 +21,12 @@ const SellingGraph = ({ data }) => {
         let streaming = 0;
 
         data.map(e => {
-            if (e.categoria === 'games') {
-                games += e.qtd_vendido;
-            } else if (e.categoria === 'store') {
-                store += e.qtd_vendido;
+            if (e.category === 'games') {
+                games += e.selling_qtt;
+            } else if (e.category === 'store') {
+                store += e.selling_qtt;
             } else {
-                streaming += e.qtd_vendido;
+                streaming += e.selling_qtt;
             }
         });
 
@@ -54,19 +54,16 @@ const SellingGraph = ({ data }) => {
     }, [])
 
     const CustomTooltip = ({ active, payload }) => {
-        // debugger
         if (active) {
-            // debugger
             return (
                 <div className="main-custom-tooltip">
-                    <h2>{payload[0].payload.category}</h2>
+                    <p className="custom-title">{payload[0].payload.category}</p>
                     <p>Quantidade vendida: <span className="custom-tooltip-selling">{payload[0].payload.selling_qtt}</span></p>
                 </div>
             );
         }
 
         return null
-
     }
 
     return (

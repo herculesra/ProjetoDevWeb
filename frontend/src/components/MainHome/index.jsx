@@ -18,7 +18,7 @@ import './styles.css';
 //util 
 import dataSearch from './util.js';
 
-const ComponentTest = () => {
+const MainHome = () => {
 
     const [cards, setCards] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -105,7 +105,6 @@ const ComponentTest = () => {
 
     return (
         <React.Fragment>
-            <h1>Componente de Teste</h1>
             <div className="input-data">
                 <input
                     type="text"
@@ -146,4 +145,4 @@ const ComponentTest = () => {
     );
 }
 
-export default ComponentTest;
+export default MainHome;

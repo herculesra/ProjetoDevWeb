@@ -6,9 +6,9 @@ import { Loader } from 'rsuite';
 import './styles.css';
 
 // Components
-import MyCard from '../../components/MyCard';
 import Header from '../../components/Header';
 import SellingGraph from '../../components/SellingGraph';
+import MainHome from '../../components/MainHome';
 
 // Model
 import CardModel from '../../model/card-model.js';
@@ -17,7 +17,7 @@ import CardModel from '../../model/card-model.js';
 import api from '../../services/api';
 
 
-const Home = (props) => {
+const Home = () => {
 
     const [cards, setCards] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -26,7 +26,7 @@ const Home = (props) => {
         const fetchDataApi = async () => {
             setLoading(true);
 
-            const res = await api.get('/giftcard', {});
+            const res = await api.get('/giftcard/moresell', {});
    
             setCards(res.data.data.map(e => new CardModel(e.code, e.name, e.category, e.price, e.favority, e.promotion, e.shopping_car, e.selling_qtt,  e.url_image)));
             setLoading(false);
@@ -39,15 +39,12 @@ const Home = (props) => {
         <>
             <Header></Header>
             <main className="main-home">
-                {loading ? <Loader /> :
-                    cards.map(cardModel => {
-                        return <MyCard key={"MyCard" + cardModel.code} cardModel={cardModel}></MyCard>
-                })}
+                <MainHome></MainHome>
                 <div className="slidershow-home">
                     <h1>Slider</h1>
                 </div>
                 <div className="graph-home">
-                    <h1>Gráfico De Estatísticas</h1>
+                    <h1>Categorias + Vendidas!</h1>
                     {loading ? <Loader /> : <SellingGraph data={cards}></SellingGraph>}
                 </div>
             </main>
