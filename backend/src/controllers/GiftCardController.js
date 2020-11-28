@@ -24,19 +24,24 @@ module.exports = {
     async create(request, response) {
         console.log(request.body);
         const { name, category, price, favority, promotion, shopping_car, selling_qtt, url_image } = request.body;
-
-        const [code] = await connection('gift_card').insert({
-            name,
-            category,
-            price,
-            favority,
-            promotion,
-            shopping_car,
-            selling_qtt,
-            url_image,
-        });
-
-        return response.json({ code });
+        
+        try{
+            const [code] = await connection('gift_card').insert({
+                name,
+                category,
+                price,
+                favority,
+                promotion,
+                shopping_car,
+                selling_qtt,
+                url_image,
+            });
+    
+            return response.json({ code });
+        }catch(e){
+            console.log(e);
+            return response.status(404).json({msg: "Erro ao cadastrar."})
+        }
     },
 
     async createManyCards(request, response) {
