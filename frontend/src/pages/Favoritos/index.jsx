@@ -46,7 +46,7 @@ const Favoritos = () => {
             <main className="main-container">
                 {
                     !loading && (favoritesCards.length > 0) ? 
-                    <div className="main-title">Cards Favoritos</div> 
+                    <div className="main-title">Cartões Favoritos</div> 
                     :
                     <div className="main-title">Nenhum Favorito</div>
                 }

@@ -1,3 +1,129 @@
 .main-register{
-    
+    margin: 0 auto;
+    width: 70%;
+    height: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+
+
+.main-register .content {
+    width: 100%;
+    padding: 96px;
+    background: #f0f0f5;
+    box-shadow: 0 0 100px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+/* SECTION */
+
+.main-register .content section {
+    width: 100%;
+    max-width: 380px;
+}
+
+.main-register .content section div{
+    background-image: url('../../assets/logo/logo1.png');
+    height: 250px;
+    width: 300px;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.main-register .content section h1 {
+    /* cima e em baixo */
+    color: #8410b3;
+    margin: 4rem 0 2rem;
+    font-size: 2rem;
+}
+
+.main-register .content section p {
+    font-size: 1.2rem;
+    color: #737380;
+    line-height: 2rem;
+}
+
+.main-register .content section a{
+    text-decoration: none;
+}
+
+
+/* form  */
+
+.main-register .content form{
+    width: 100%;
+    max-width: 450px;
+}
+
+.main-register .content form input{
+    margin-top: 1rem;
+}
+
+
+.main-register .content form .register-name-card,
+.main-register .content form .register-image-card{
+    width: 300px;
+    display: block;
+    padding: 5px;
+    border: solid 2px rgba(47, 13, 70, 0.568);
+    border-radius: 5px;
+}
+
+.main-register .content form .register-category-card,
+.main-register .content form .register-price-card,
+.main-register .content form .register-promotion-card
+{
+    margin-top: 1rem;
+}
+
+.main-register .content form .register-category-card label,
+.main-register .content form .register-price-card label,
+.main-register .content form .register-promotion-card label
+{
+    width: 100px;
+    margin-right: 1rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.main-register .content form .register-category-card select,
+.main-register .content form .register-price-card input,
+.main-register .content form .register-promotion-card select
+{
+    width: 170px;
+    display: inline-block;
+    padding: 5px;
+    border: solid 2px rgba(47, 13, 70, 0.568);
+    border-radius: 5px;
+}
+
+.main-register .content form .register-price-card label{
+    margin-right: 3.2rem;
+}
+
+.main-register .content form .register-card-button{
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    margin-top: 2rem;
+    width: 300px;
+    height: 50px;
+}
+
+.main-register .content form .register-card-button button{ 
+    color: white;
+    width: 100%;
+    padding: 10px;
+    letter-spacing: 0.1rem;
+    text-transform: capitalize;
+   
+    background-color: #8410b3;
+}
+

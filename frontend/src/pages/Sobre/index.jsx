@@ -2,16 +2,18 @@ import React from 'react';
 
 // Components
 import Header from '../../components/Header';
+import Footer from '../../components/Footer';
 
 import './styles.css';
 
 const Sobre = () => {
 
     return (
-        <>
+        <React.Fragment>
             <Header></Header>
-            <h1>Sobre</h1>
-        </>
+            <h1></h1>
+            <Footer></Footer>
+        </React.Fragment>
     );
 }
 

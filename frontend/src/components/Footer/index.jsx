@@ -6,7 +6,7 @@ const Footer = () =>{
     
     return(
         <React.Fragment>
-            <p>FOOTER</p>
+            <p></p>
         </React.Fragment>
     );
 }
