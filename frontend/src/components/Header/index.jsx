@@ -13,7 +13,7 @@ const Header = (props) => {
         <div className="header-container">
             <div>
                 <img src={loukinhoImg} alt="Loukinho" />
-                <img src={textLogoImg} alt="Gift Loucos" />
+                <img src={textLogoImg} alt="Gift Loucos" className="logo_text" />
             </div>
             <nav>
                 <ul>
