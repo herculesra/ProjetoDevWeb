@@ -10,9 +10,6 @@ import Footer from '../../components/Footer';
 // CSS
 import './styles.css';
 
-// Logo
-import logoImg from '../../assets/logo/logo1.png';
-
 // Api
 import api from '../../services/api';
 
@@ -25,6 +22,8 @@ const Cadastro = () => {
     const [shopping_car, setShopping_car] = useState(false);
     const [selling_qtt, setSelling_qtt] = useState(0);
     const [url_image, setUrl_image] = useState("");
+
+    const history = useHistory();
 
     const handleNewCard = async (event) => {
         event.preventDefault();
@@ -42,6 +41,8 @@ const Cadastro = () => {
 
         try {
             await api.post('giftcard', data, {});
+
+            history.push('/');
         } catch (error) {
             console.error(error);
             alert("Erro, não foi possível cadastrar um novo caso.")
@@ -107,7 +108,7 @@ const Cadastro = () => {
                         <input
                             className="register-image-card"
                             placeholder="Nome ou URL da imagem"
-                            value={name}
+                            value={url_image}
                             onChange={e => setUrl_image(e.target.value)}
                         />
                         <div className="register-card-button">
