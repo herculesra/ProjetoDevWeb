@@ -97,6 +97,7 @@
 .main-register .content form .register-price-card input,
 .main-register .content form .register-promotion-card select
 {
+    background-color: white;
     width: 170px;
     display: inline-block;
     padding: 5px;
