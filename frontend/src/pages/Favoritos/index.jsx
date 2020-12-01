@@ -42,7 +42,7 @@ const Favoritos = () => {
 
     return (
         <React.Fragment>
-            <Header></Header>
+            <Header selectedOption={"favorities"}></Header>
             <main className="main-container">
                 {
                     !loading && (favoritesCards.length > 0) ? 

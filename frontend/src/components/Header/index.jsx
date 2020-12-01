@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
 import { Link } from 'react-router-dom';
 
@@ -8,7 +8,6 @@ import textLogoImg from '../../assets/logo/logo4.png';
 import './styles.css';
 
 const Header = (props) => {
-
     return (
         <div className="header-container">
             <div>
@@ -17,11 +16,11 @@ const Header = (props) => {
             </div>
             <nav>
                 <ul>
-                    <li><Link to={"/"}>Home</Link></li>
-                    <li><Link to={"/favoritos"}>Favoritos</Link></li>
-                    <li><Link to={"/carrinho"}>Carrinho</Link></li>
-                    <li><Link to={"/cadastro"}>Cadastrar</Link></li>
-                    <li><Link to={"/sobre"}>Sobre</Link></li>
+                    <li><Link to={"/"} className={props.selectedOption === 'home' ? "selectedOption" : "customButton"}>Home</Link></li>
+                    <li><Link to={"/favoritos"} className={props.selectedOption === 'favorities' ? "selectedOption" : "customButton"}>Favoritos</Link></li>
+                    <li><Link to={"/carrinho"} className={props.selectedOption === 'shopping_car' ? "selectedOption" : "customButton"}>Carrinho</Link></li>
+                    <li><Link to={"/cadastro"} className={props.selectedOption === 'register' ? "selectedOption" : "customButton"}>Cadastrar</Link></li>
+                    <li><Link to={"/sobre"} className={props.selectedOption === 'about' ? "selectedOption" : "customButton"}>Sobre</Link></li>
                 </ul>
             </nav>
         </div>

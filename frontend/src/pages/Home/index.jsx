@@ -37,7 +37,7 @@ const Home = () => {
 
     return (
         <>
-            <Header></Header>
+            <Header selectedOption={"home"}></Header>
             <main className="main-home">
                 <MainHome></MainHome>
                 <div className="slidershow-home">

@@ -57,7 +57,7 @@ const Carrinho = () => {
 
     return (
         <React.Fragment>
-            <Header></Header>
+            <Header selectedOption={"shopping_car"}></Header>
             <main className="main-container">
                 {
                     !loading && (shoppingCar.length > 0) ?

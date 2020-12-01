@@ -51,7 +51,7 @@ const Cadastro = () => {
 
     return (
         <React.Fragment>
-            <Header></Header>
+            <Header selectedOption={"register"}></Header>
             <div className="main-register">
                 <div className="content">
 

@@ -10,7 +10,7 @@ const Sobre = () => {
 
     return (
         <React.Fragment>
-            <Header></Header>
+            <Header selectedOption={"about"}></Header>
             <h1></h1>
             <Footer></Footer>
         </React.Fragment>
