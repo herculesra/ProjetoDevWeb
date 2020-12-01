@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 
-import { Pagination } from 'rsuite';
+import { FiTrash2 } from 'react-icons/fi';
+
+import { Alert, Pagination } from 'rsuite';
 import 'rsuite/dist/styles/rsuite-default.css';
 
 //componentes
@@ -39,14 +41,25 @@ const MainHome = () => {
         fetchDataApiWithOptions(nameAux, optionAux, page);
     }
 
-    const handleChangeName = (event) =>{
+    const handleDeleteCard = async (code) => {
+        
+        try{
+            await api.delete(`giftcard/${code}`);
+
+            setCards(cards.filter( card => card.code !== code));
+        }catch(e){
+            alert("Error ao deletar cartão: ", e);
+        }
+    }
+
+    const handleChangeName = (event) => {
         if (auxTimeout) {
             clearTimeout(auxTimeout)
         }
-        
+
         const name = event.target.value;
 
-        if(name === ''){
+        if (name === '') {
             setNameAux('all');
             setOptionAux(false);
             fetchDataApiWithOptions('all', false, activePage);
@@ -73,17 +86,17 @@ const MainHome = () => {
     const fetchDataApiWithOptions = async (name, option, page) => {
         let query = `/giftcard/category/${name}?page=${page}&limit=${LIMIT}` // Get Cards By Category
 
-        if(option){
+        if (option) {
             query = `/giftcard/name/${name}?page=${page}&limit=${LIMIT}`; // Get Cards By Name
-        }else if(name === 'all'){
+        } else if (name === 'all') {
             query = `/giftcard?page=${page}&limit=${LIMIT}` // Get All cards
         }
-        
-        try{
+
+        try {
             const res = await api.get(query, {});
             setCards(res.data.data.map(e => new CardModel(e.code, e.name, e.category, e.price, e.favority, e.promotion, e.shopping_car, e.selling_qtt, e.url_image)));
             setTotalPages(Math.ceil(res.data.total / LIMIT));
-        }catch(e){
+        } catch (e) {
             console.erro(e);
         }
     }
@@ -123,7 +136,13 @@ const MainHome = () => {
                 {loading ?
                     null :
                     cards.map(cardModel => (
-                        <MyCard key={"MyCard" + cardModel.code} cardModel={cardModel}></MyCard>
+                        <div className="group-cards">
+                            <MyCard key={"MyCard" + cardModel.code} cardModel={cardModel}></MyCard>
+                            <button onClick={() => handleDeleteCard(cardModel.code)} type="button">
+                                <FiTrash2 size={20} color="#a8a8b3"/>
+                            </button>
+                        </div>
+
                     ))
                 }
             </main>

@@ -35,3 +35,21 @@
     box-shadow: 0.1rem 0.1rem 2px rgba(47, 13, 70, 0.568);
 }
 
+main .group-cards{
+    margin: 0;
+    display: inline-block;
+    position: relative;
+    
+}
+
+main .group-cards button{
+    position: absolute;
+    right: 24px;
+    top: 24px;
+    border: 0;
+    background: transparent;
+}
+
+main .group-cards button:hover{
+    opacity: 0.8;
+}
