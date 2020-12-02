@@ -1,6 +1,7 @@
 .header-container{
     display: flex;
     width: 80%;
+    min-width: 1300px;
     margin: 0 auto;
     height: 12.5rem;
     justify-content: space-between;
@@ -70,7 +71,7 @@
 
 /* responsividade */
 
-@media screen and (max-width: 1660px){
+@media screen and (max-width: 1300px){
     .logo_text{
         visibility: hidden;
     }

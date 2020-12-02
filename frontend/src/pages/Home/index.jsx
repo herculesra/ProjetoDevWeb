@@ -7,6 +7,7 @@ import './styles.css';
 
 // Components
 import Header from '../../components/Header';
+import Footer from '../../components/Footer';
 import SellingGraph from '../../components/SellingGraph';
 import MainHome from '../../components/MainHome';
 
@@ -48,7 +49,7 @@ const Home = () => {
                     {loading ? <Loader /> : <SellingGraph data={cards}></SellingGraph>}
                 </div>
             </main>
-
+            <Footer></Footer>
         </>
     );
 }

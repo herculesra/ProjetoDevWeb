@@ -7,7 +7,6 @@ import { Loader } from 'rsuite';
 
 // Components
 import Header from '../../components/Header';
-import Footer from '../../components/Footer'
 import MyCard from '../../components/MyCard';
 
 // Api
@@ -107,8 +106,6 @@ const Carrinho = () => {
                 <div className="main-buy-container"><button className="main-buy button" onClick={() => handlerBuyCard()}>comprar</button></div>
             </main>
             
-            <Footer></Footer>
-
         </React.Fragment>
     );
 }

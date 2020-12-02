@@ -132,6 +132,20 @@ const MainHome = () => {
                     {dataSearch.map((e, index) => <option key={"option" + index} value={e.value} >{e.label}</option>)}
                 </select>
             </div>
+            <Pagination
+                className="main-pagination"
+                prev={true}
+                next={true}
+                first={true}
+                last={true}
+                ellipsis={true}
+                boundaryLinks={true}
+                size={'lg'}
+                pages={totalPages}
+                maxButtons={5}
+                activePage={activePage}
+                onSelect={handleChangePage}
+            />
             <main className="main-container">
                 {loading ?
                     null :

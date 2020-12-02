@@ -17,11 +17,12 @@ const Cadastro = () => {
     const [name, setName] = useState("");
     const [category, setCategory] = useState("games");
     const [price, setPrice] = useState(0);
-    const [favority, setFavority] = useState(false);
     const [promotion, setPromotion] = useState(false);
+    const [url_image, setUrl_image] = useState("");
+    
+    const [favority, setFavority] = useState(false);
     const [shopping_car, setShopping_car] = useState(false);
     const [selling_qtt, setSelling_qtt] = useState(0);
-    const [url_image, setUrl_image] = useState("");
 
     const history = useHistory();
 
@@ -76,7 +77,7 @@ const Cadastro = () => {
 
                         <div className="register-category-card">
                             <label >Categoria: </label>
-                            <select 
+                            <select
                                 value={category}
                                 onChange={ e => setCategory(e.target.value)}
                             >
