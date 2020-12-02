@@ -136,8 +136,8 @@ const MainHome = () => {
                 {loading ?
                     null :
                     cards.map(cardModel => (
-                        <div className="group-cards">
-                            <MyCard key={"MyCard" + cardModel.code} cardModel={cardModel}></MyCard>
+                        <div key={"DivCards" + cardModel.code} className="group-cards">
+                            <MyCard cardModel={cardModel}></MyCard>
                             <button onClick={() => handleDeleteCard(cardModel.code)} type="button">
                                 <FiTrash2 size={20} color="#a8a8b3"/>
                             </button>

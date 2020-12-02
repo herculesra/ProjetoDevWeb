@@ -28,6 +28,35 @@ const Carrinho = () => {
 
     const handlerBuyCard = () => {
         console.log('funcao de compra')
+
+        try{
+            shoppingCar.map( async(card) => {
+                const query = '/giftcard';
+
+                const data = {
+                    'code': card.code,
+                    'name': card.name,
+                    'price': card.price,
+                    'category': card.category,
+                    'selling_qtt': card.selling_qtt + 1,
+                    'url_image': card.urlImage,
+                    'promotion': card.promotion,
+                    'favority': card.favority,
+                    'shopping_car': false,
+                }
+         
+                try {
+                    await api.put(query, data);
+                }catch(e){
+                    console.error("Error:",e);
+                }
+            })
+            alert("Muito Obrigado!")
+        }catch(e){
+            alert("Error ao comprar");
+            console.error(e);
+        }
+
         history.push('/');
     }
 

@@ -58,7 +58,7 @@ const Cadastro = () => {
                     <section>
                         <div></div>
                         <h1>Cadastrar novo cartão</h1>
-                        <p><strong>OBS:</strong> A imagem do cartão pode ser uma URL, nome dos arquivos previamente já cadastrados ou nenhum caracter.</p>
+                        <p><strong>OBS:</strong> A imagem do cartão pode ser uma URL, nome dos arquivos previamente já cadastrados ou pode deixar o campo em branco.</p>
 
                         <Link className="back-link" to="/">
                             <FiArrowLeft size={16} color="#8410b3"/>
