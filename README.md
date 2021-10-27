@@ -36,3 +36,20 @@ O objetivo é implementar as principais funcionalidades da loja (Mostrar os prod
 * Carrinho
 
     - O carrinho terá todos os produtos previamentes adicionados. O Total da quantidade daqueles produtos e opções para finalizar compra e remover produto do carrinho.
+
+### Como executar o projeto?
+
+    - basta entrar em cada uma das pastas, instalar as bibliotecas e executar o projeto:
+
+    backend:
+
+    cd backend/
+    npm install
+    npm start
+
+    frontend:
+
+    cd frontend/
+    npm install
+    npm start
+
